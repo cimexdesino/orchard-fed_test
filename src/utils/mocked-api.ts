@@ -38,23 +38,45 @@ export const featuredSectionData = {
     {
       id: 100,
       title: 'Red',
-      imageUrl: 'images/red-spoon.png',
+      image: {
+        id: 1,
+        src: 'images/red-spoon.png',
+        description: 'Red spoon representing sweet flavor',
+      },
       description:
         'Red foods remind us of berries and soft fruits, so we anticipate a sweet taste.',
     },
     {
       id: 101,
       title: 'Green',
-      imageUrl: 'images/green-spoon.png',
+      image: {
+        id: 2,
+        src: 'images/green-spoon.png',
+        description: 'Green spoon representing sour flavor',
+      },
       description:
         'Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours',
     },
     {
       id: 102,
       title: 'White',
-      imageUrl: 'images/white-spoon.png',
+      image: {
+        id: 3,
+        src: 'images/white-spoon.png',
+        description: 'White spoon representing salty flavor',
+      },
       description:
         'White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.',
     },
+    // {
+    //   id: 103,
+    //   title: 'White',
+    //   image: {
+    //     src: 'images/white-spoon.png',
+    //     description: 'White spoon representing salty flavor',
+    //   },
+    //   description:
+    //     'White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.',
+    // },
   ],
 };

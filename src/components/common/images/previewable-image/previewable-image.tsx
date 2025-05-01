@@ -4,15 +4,23 @@ import { cn } from '@/utils/cn';
 import React from 'react';
 import { useOverlayTriggerState } from 'react-stately';
 
-type PreviewableImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type PreviewableImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  containerClassName: string;
+};
 
 // Consider using picture if we need changing assets for each breakpoint
-export const PreviewableImage = ({ src, alt = '', className, ...rest }: PreviewableImageProps) => {
+export const PreviewableImage = ({
+  src,
+  alt = '',
+  containerClassName = '',
+  className,
+  ...rest
+}: PreviewableImageProps) => {
   const state = useOverlayTriggerState({});
 
   return (
     <>
-      <Button onPress={() => state.open()} className='p-0 w-full h-full'>
+      <Button onPress={() => state.open()} className={cn('p-0 w-full h-full', containerClassName)}>
         <img src={src} alt={alt} className={className} {...rest} />
       </Button>
 

@@ -19,7 +19,7 @@ export type MainSectionData = {
 export type FeaturedItem = {
   id: number;
   title: string;
-  imageUrl: string;
+  image: ImageItem;
   description: string;
 };
 

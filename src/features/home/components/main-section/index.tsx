@@ -8,7 +8,7 @@ type MainSectionProps = {
 
 const MainSection = ({ mainSectionData }: MainSectionProps) => {
   return (
-    <Section className='mx-auto' aria-labelledby='cooking-section-heading'>
+    <Section className='main-section' aria-labelledby='cooking-section-heading'>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-y-[30px] lg:gap-x-[30px] items-stretch'>
         <ImagesList images={mainSectionData.images} />
 

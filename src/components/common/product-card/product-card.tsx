@@ -2,6 +2,8 @@ import { Card } from '@/components/ui/card';
 import { FeaturedItem } from '@/types';
 import { cn } from '@/utils/cn';
 import React from 'react';
+import { PreviewableImage } from '../images/previewable-image/previewable-image';
+import Link from '@/components/ui/link';
 
 type ProductCardProps = {
   product: FeaturedItem;
@@ -11,41 +13,26 @@ type ProductCardProps = {
 
 const Text = ({ className, children }: { className: string; children: React.ReactNode }) => {
   return (
-    <span
-      className={cn(
-        'self-stretch flex-grow-0 text-[21px] font-light leading-[1.43] text-center',
-        className,
-      )}
-    >
-      {children}
-    </span>
+    <p className={cn('text-[21px] font-light leading-[1.43] text-center', className)}>{children}</p>
   );
 };
 
 const ProductCard = ({ product, className, onClick }: ProductCardProps) => {
   return (
-    <Card
-      className={cn(
-        'w-[375px] h-[460px] grow-0 flex flex-col justify-start items-center gap-[30px] p-0',
-        className,
-      )}
-      onClick={onClick}
-    >
-      {/* @TODO: use PreviableImage here */}
-      <div
-        className='Tight-Top pc-image w-[375px] h-[300px] flex-grow-0'
-        style={{
-          backgroundImage: `url(${product.imageUrl})`,
-          backgroundColor: '#FFF',
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
+    <Card className={cn('w-full max-w-[375px]', className)}>
+      <PreviewableImage
+        src={product.image.src}
+        alt={product.image.description}
+        className='w-full h-[300px] object-cover'
+        containerClassName='h-[300px]'
       />
-      <div className='pc-body h-[130px] self-stretch flex flex-col justify-start items-stretch gap-[10px] px-[30px] flex-grow-0'>
-        <Text className='pc-title h-[30px] font-bold'>{product.title}</Text>
-        <Text className='pc-description h-[90px]'>{product.description}</Text>
-      </div>
+
+      <Link onClick={onClick}>
+        <div className='pc-body flex flex-col flex-grow gap-[10px] px-[30px] '>
+          <Text className='pc-title font-bold '>{product.title}</Text>
+          <Text className='pc-description line-clamp-5'>{product.description}</Text>
+        </div>
+      </Link>
     </Card>
   );
 };
