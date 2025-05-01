@@ -4,7 +4,7 @@ import Link from '../link';
 
 type BaseProps = {
   children: React.ReactNode;
-  isClickable?: bool;
+  isClickable?: boolean;
   className?: string;
   onClick?: () => void;
 };

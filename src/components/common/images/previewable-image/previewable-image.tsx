@@ -5,7 +5,7 @@ import React from 'react';
 import { useOverlayTriggerState } from 'react-stately';
 
 type PreviewableImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
-  containerClassName: string;
+  containerClassName?: string;
 };
 
 // Consider using picture if we need changing assets for each breakpoint

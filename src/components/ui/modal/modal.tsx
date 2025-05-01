@@ -1,6 +1,6 @@
 import React from 'react';
 import { Overlay, useModalOverlay, AriaModalOverlayProps, FocusScope } from 'react-aria';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
 import { OverlayTriggerState } from 'react-stately';
 
 export interface ModalProps extends AriaModalOverlayProps {
@@ -22,10 +22,10 @@ export function Modal({ state, children, ...props }: ModalProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              {...(underlayProps as React.HTMLAttributes<HTMLDivElement>)}
+              {...(underlayProps as HTMLMotionProps<'div'>)}
             >
               <motion.div
-                {...(modalProps as React.HTMLAttributes<HTMLDivElement>)}
+                {...(modalProps as HTMLMotionProps<'div'>)}
                 ref={ref}
                 className='relative p-6 rounded shadow-lg'
                 initial={{ scale: 0.95, opacity: 0 }}
